@@ -15,6 +15,22 @@ const SLIDES = [
   },
   {
     id: "slide-2",
+    image: "/images/china.jpg",
+    width: 736,
+    height: 1308,
+    tag: "Sourcing from China",
+    title: "Your direct link to China.",
+  },
+  {
+    id: "slide-3",
+    image: "/images/shipping.jpg",
+    width: 800,
+    height: 1120,
+    tag: "Shipping & delivery",
+    title: "Sourced, shipped and delivered.",
+  },
+  {
+    id: "slide-4",
     image: "/images/Copilot_20260909_124557.png",
     tag: "Travel & logistics",
     title: "Airport to hotel, handled.",
@@ -23,7 +39,15 @@ const SLIDES = [
     accent: "#4E7CFF",
   },
   {
-    id: "slide-3",
+    id: "slide-5",
+    image: "/images/visa.jpg",
+    width: 736,
+    height: 1036,
+    tag: "Visa & stay guidance",
+    title: "Visas and paperwork, handled.",
+  },
+  {
+    id: "slide-6",
     image: "/images/Copilot_20260909_124559.png",
     tag: "Visa & stay guidance",
     title: "Visa, passport and stay sorted.",
@@ -32,7 +56,7 @@ const SLIDES = [
     accent: "#6E8BFF",
   },
   {
-    id: "slide-4",
+    id: "slide-7",
     image: "/images/Copilot_20260909_124601.png",
     tag: "Studio & production",
     title: "Capture the moment, done right.",
@@ -41,7 +65,7 @@ const SLIDES = [
     accent: "#9DB4FF",
   },
   {
-    id: "slide-5",
+    id: "slide-8",
     image: "/images/Copilot_20260909_124603.png",
     tag: "Product sourcing",
     title: "Tell us once, we ship it.",
@@ -50,7 +74,7 @@ const SLIDES = [
     accent: "#1E5AFF",
   },
   {
-    id: "slide-6",
+    id: "slide-9",
     image: "/images/Copilot_20260909_124605.png",
     tag: "Airport and hotel transfers",
     title: "Door to door, arranged.",
@@ -59,7 +83,7 @@ const SLIDES = [
     accent: "#4E7CFF",
   },
   {
-    id: "slide-7",
+    id: "slide-10",
     image: "/images/Copilot_20260909_124607.png",
     tag: "Studio & production",
     title: "Shoots, streaming and recording.",
@@ -119,7 +143,7 @@ export default function ShowcaseCarousel() {
       onTouchStart={() => setPaused(true)}
       onTouchEnd={() => setPaused(false)}
     >
-      <div className="relative h-[420px] overflow-hidden sm:h-[500px]">
+      <div className="relative h-[440px] overflow-hidden sm:h-[560px]">
         {leavingSlide && (
           <div key={`out-${leavingSlide.id}`} className={`absolute inset-0 ${leaving.cls}`}>
             <SlideImage slide={leavingSlide} interactive={false} />
@@ -183,8 +207,8 @@ function SlideImage({ slide, interactive }) {
         <Image
           src={slide.image}
           alt={slide.tag}
-          width={1024}
-          height={1024}
+          width={slide.width ?? 1024}
+          height={slide.height ?? 1024}
           priority={interactive}
           className={`relative h-full w-full object-contain transition-transform duration-500 ${
             interactive ? "group-hover:scale-[1.03]" : ""
